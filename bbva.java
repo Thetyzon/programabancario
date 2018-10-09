@@ -20,7 +20,7 @@ public class bbva {
    public static void main(String[] args) {
       Scanner in = new Scanner(System.in);
 
-      float MAX_BALANCE = 10000000.00f;
+      float MAX_BALANCE = 1000000.00f;
       float balance = 5000.00f;
       int PIN = 1234;
       int attempts = 3;
@@ -59,6 +59,10 @@ public class bbva {
         System.out.println("Transferencia");
         System.out.println("Cuanto deseas transferir?");
         transferido = in.nextInt();
+        if (transferido >= MAX_BALANCE){
+        System.out.println("El maximo para transferir es de 999999");
+        System.exit(1);
+        }
         balance = balance - transferido;
       }
       else if (menuOption == 'g') {
@@ -72,6 +76,7 @@ public class bbva {
         }
       
 
+      
       
       
         printMenu();
