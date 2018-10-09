@@ -12,7 +12,6 @@ import java.util.Scanner;
 // transfer: Add money to the balance.
 // get: Get money from the balance.
 // balance: Show the balance.
-// menu: Show the menu.
 // exit: Exit.
 //
 // https://stackoverflow.com/questions/13942701/take-a-char-input-from-the-scanner
@@ -24,7 +23,7 @@ public class bbva {
       float MAX_BALANCE = 10000000.00f;
       float balance = 5000.00f;
       int PIN = 1234;
-      int attempts = 0;
+      int attempts = 3;
       int userPIN;
       int transferido;
       int prestamo;
@@ -35,15 +34,15 @@ public class bbva {
 
     // Enter the PIN code
     while (PIN != userPIN) {
-      attempts = attempts + 1;
+      attempts = attempts - 1;
 
-      if (attempts >= 3) {
+      if (attempts == 0) {
         System.out.println("Demasiados intentos incorrectos");
         System.exit(1);
       } // Finish the execution
 
       System.out.println("PIN incorrecto");
-      System.out.println("Introduce tu codigo PIN porfavor:");
+      System.out.println("Introduce tu codigo PIN porfavor, te quedan "+ attempts + " intentos:");
       userPIN = in.nextInt();
     }
 
@@ -68,6 +67,9 @@ public class bbva {
         prestamo = in.nextInt();
         balance = balance + prestamo;
       }
+      else if (menuOption == 'e') {
+        System.exit(1);
+        }
       
 
       
